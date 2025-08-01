@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title></title>
+  <title>Comparaison Avant/Après</title>
   <style>
     * {
       box-sizing: border-box;
@@ -14,18 +14,27 @@
       padding: 30px 10px;
       background: #fafafa;
     }
+
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 20px;
       max-width: 1200px;
       margin: auto;
     }
+
+    @media (max-width: 768px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     .slider-wrapper {
       display: flex;
       flex-direction: column;
       align-items: center;
     }
+
     .slider-title {
       font-weight: 600;
       font-size: 16px;
@@ -33,12 +42,14 @@
       color: #333;
       text-align: center;
     }
+
     .slider-sub {
       font-size: 13px;
       color: #777;
       margin-bottom: 12px;
       text-align: center;
     }
+
     .container {
       position: relative;
       width: 100%;
@@ -49,11 +60,13 @@
       background: white;
       box-shadow: 0 8px 20px rgba(181, 155, 123, 0.3);
     }
+
     .image-container {
       position: relative;
       width: 100%;
       height: 100%;
     }
+
     .slider-image {
       position: absolute;
       top: 0; left: 0;
@@ -61,11 +74,13 @@
       height: 100%;
       object-fit: cover;
     }
+
     .image-before {
       clip-path: inset(0 50% 0 0);
       transition: clip-path 0.15s ease-out;
       z-index: 2;
     }
+
     .slider {
       position: absolute;
       top: 0; left: 0;
@@ -76,6 +91,7 @@
       appearance: none;
       z-index: 3;
     }
+
     .slider-line {
       position: absolute;
       top: 0; bottom: 0;
@@ -87,6 +103,7 @@
       z-index: 4;
       border-radius: 2px;
     }
+
     .slider-button {
       position: absolute;
       top: 50%;
@@ -103,12 +120,14 @@
       align-items: center;
       box-shadow: 0 0 10px #B59B7B88;
     }
+
     .slider-button svg {
       width: 16px;
       height: 16px;
       stroke: white;
       stroke-width: 2;
     }
+
     .label {
       position: absolute;
       top: 12px;
@@ -121,6 +140,7 @@
       z-index: 10;
       user-select: none;
     }
+
     .label.before { left: 15px; }
     .label.after { right: 15px; }
 
@@ -134,8 +154,9 @@
 <body>
 
 <div class="grid">
-    
-  <!-- SLIDER 1 -->
+  <!-- SLIDERS X6 -->
+  <!-- Copiez/collez ce bloc pour chaque nouveau slider -->
+  <!-- ↓↓↓ SLIDER EXEMPLE ↓↓↓ -->
   <div class="slider-wrapper">
     <div class="slider-title">Sarah L.</div>
     <div class="slider-sub">Résultat visible dès les premières semaines</div>
@@ -160,11 +181,12 @@
     </div>
   </div>
 
-
-  <!-- SLIDER 2 -->
+  <!-- Répétez ce bloc pour 6 sliders -->
+  <!-- ... copier-coller ici le même slider-wrapper ... -->
+  <!-- ↓↓↓ SLIDER EXEMPLE ↓↓↓ -->
   <div class="slider-wrapper">
-    <div class="slider-title">Mouna R.</div>
-    <div class="slider-sub">Peau plus lisse et uniforme</div>
+    <div class="slider-title">Sarah L.</div>
+    <div class="slider-sub">Résultat visible dès les premières semaines</div>
     <div class="container">
       <div class="image-container">
         <img class="slider-image image-after" src="https://www.danishskincare.com/cdn/shop/files/recANLCB3WxgPSyCT-thumbnail-after.jpg" alt="Après" />
@@ -173,7 +195,6 @@
       <input type="range" min="0" max="100" value="50" class="slider" />
       <div class="slider-line"></div>
       <div class="slider-button">
-        <!-- même icône SVG -->
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 256 256">
           <line x1="128" y1="40" x2="128" y2="216" />
           <line x1="96" y1="128" x2="16" y2="128" />
@@ -186,12 +207,10 @@
       <div class="label after">Après</div>
     </div>
   </div>
-
-
-  <!-- SLIDER 3 -->
+  <!-- ↓↓↓ SLIDER EXEMPLE ↓↓↓ -->
   <div class="slider-wrapper">
-    <div class="slider-title">Mouna R.</div>
-    <div class="slider-sub">Peau plus lisse et uniforme</div>
+    <div class="slider-title">Sarah L.</div>
+    <div class="slider-sub">Résultat visible dès les premières semaines</div>
     <div class="container">
       <div class="image-container">
         <img class="slider-image image-after" src="https://www.danishskincare.com/cdn/shop/files/recANLCB3WxgPSyCT-thumbnail-after.jpg" alt="Après" />
@@ -200,7 +219,6 @@
       <input type="range" min="0" max="100" value="50" class="slider" />
       <div class="slider-line"></div>
       <div class="slider-button">
-        <!-- même icône SVG -->
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 256 256">
           <line x1="128" y1="40" x2="128" y2="216" />
           <line x1="96" y1="128" x2="16" y2="128" />
@@ -213,11 +231,10 @@
       <div class="label after">Après</div>
     </div>
   </div>
-
-  <!-- SLIDER 4 -->
+  <!-- ↓↓↓ SLIDER EXEMPLE ↓↓↓ -->
   <div class="slider-wrapper">
-    <div class="slider-title">Mouna R.</div>
-    <div class="slider-sub">Peau plus lisse et uniforme</div>
+    <div class="slider-title">Sarah L.</div>
+    <div class="slider-sub">Résultat visible dès les premières semaines</div>
     <div class="container">
       <div class="image-container">
         <img class="slider-image image-after" src="https://www.danishskincare.com/cdn/shop/files/recANLCB3WxgPSyCT-thumbnail-after.jpg" alt="Après" />
@@ -226,7 +243,6 @@
       <input type="range" min="0" max="100" value="50" class="slider" />
       <div class="slider-line"></div>
       <div class="slider-button">
-        <!-- même icône SVG -->
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 256 256">
           <line x1="128" y1="40" x2="128" y2="216" />
           <line x1="96" y1="128" x2="16" y2="128" />
@@ -239,11 +255,10 @@
       <div class="label after">Après</div>
     </div>
   </div>
-
-  <!-- SLIDER 5 -->
+  <!-- ↓↓↓ SLIDER EXEMPLE ↓↓↓ -->
   <div class="slider-wrapper">
-    <div class="slider-title">Mouna R.</div>
-    <div class="slider-sub">Peau plus lisse et uniforme</div>
+    <div class="slider-title">Sarah L.</div>
+    <div class="slider-sub">Résultat visible dès les premières semaines</div>
     <div class="container">
       <div class="image-container">
         <img class="slider-image image-after" src="https://www.danishskincare.com/cdn/shop/files/recANLCB3WxgPSyCT-thumbnail-after.jpg" alt="Après" />
@@ -252,7 +267,6 @@
       <input type="range" min="0" max="100" value="50" class="slider" />
       <div class="slider-line"></div>
       <div class="slider-button">
-        <!-- même icône SVG -->
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 256 256">
           <line x1="128" y1="40" x2="128" y2="216" />
           <line x1="96" y1="128" x2="16" y2="128" />
@@ -265,11 +279,10 @@
       <div class="label after">Après</div>
     </div>
   </div>
-  
-  <!-- SLIDER 6 -->
+  <!-- ↓↓↓ SLIDER EXEMPLE ↓↓↓ -->
   <div class="slider-wrapper">
-    <div class="slider-title">Mouna R.</div>
-    <div class="slider-sub">Peau plus lisse et uniforme</div>
+    <div class="slider-title">Sarah L.</div>
+    <div class="slider-sub">Résultat visible dès les premières semaines</div>
     <div class="container">
       <div class="image-container">
         <img class="slider-image image-after" src="https://www.danishskincare.com/cdn/shop/files/recANLCB3WxgPSyCT-thumbnail-after.jpg" alt="Après" />
@@ -278,7 +291,6 @@
       <input type="range" min="0" max="100" value="50" class="slider" />
       <div class="slider-line"></div>
       <div class="slider-button">
-        <!-- même icône SVG -->
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 256 256">
           <line x1="128" y1="40" x2="128" y2="216" />
           <line x1="96" y1="128" x2="16" y2="128" />
@@ -291,8 +303,6 @@
       <div class="label after">Après</div>
     </div>
   </div>
-
-
 </div>
 
 <script>
