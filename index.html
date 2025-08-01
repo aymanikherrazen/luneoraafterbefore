@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title></title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 30px 10px;
+      background: #fafafa;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .slider-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .slider-title {
+      font-weight: 600;
+      font-size: 16px;
+      margin-bottom: 5px;
+      color: #333;
+      text-align: center;
+    }
+    .slider-sub {
+      font-size: 13px;
+      color: #777;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+    .container {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      border: 2px solid #B59B7B;
+      border-radius: 10px;
+      background: white;
+      box-shadow: 0 8px 20px rgba(181, 155, 123, 0.3);
+    }
+    .image-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+    .slider-image {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .image-before {
+      clip-path: inset(0 50% 0 0);
+      transition: clip-path 0.15s ease-out;
+      z-index: 2;
+    }
+    .slider {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      cursor: ew-resize;
+      background: none;
+      appearance: none;
+      z-index: 3;
+    }
+    .slider-line {
+      position: absolute;
+      top: 0; bottom: 0;
+      left: 50%;
+      width: 4px;
+      background-color: #B59B7B;
+      transform: translateX(-50%);
+      pointer-events: none;
+      z-index: 4;
+      border-radius: 2px;
+    }
+    .slider-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 30px;
+      height: 30px;
+      background: #B59B7B;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 0 10px #B59B7B88;
+    }
+    .slider-button svg {
+      width: 16px;
+      height: 16px;
+      stroke: white;
+      stroke-width: 2;
+    }
+    .label {
+      position: absolute;
+      top: 12px;
+      background: rgba(181, 155, 123, 0.8);
+      color: white;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 14px;
+      z-index: 10;
+      user-select: none;
+    }
+    .label.before { left: 15px; }
+    .label.after { right: 15px; }
+
+    @media (max-width: 768px) {
+      .label { font-size: 12px; padding: 4px 10px; top: 8px; }
+      .label.before { left: 10px; }
+      .label.after { right: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="grid">
+    
+  <!-- SLIDER 1 -->
+  <div class="slider-wrapper">
+    <div class="slider-title">Sarah L.</div>
+    <div class="slider-sub">Résultat visible dès les premières semaines</div>
+    <div class="container">
+      <div class="image-container">
+        <img class="slider-image image-after" src="https://www.danishskincare.com/cdn/shop/files/recANLCB3WxgPSyCT-thumbnail-after.jpg" alt="Après" />
+        <img class="slider-image image-before" src="https://www.danishskincare.com/cdn/shop/files/recANLCB3WxgPSyCT-thumbnail-before.jpg" alt="Avant" />
+      </div>
+      <input type="range" min="0" max="100" value="50" class="slider" />
+      <div class="slider-line"></div>
+      <div class="slider-button">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 256 256">
+          <line x1="128" y1="40" x2="128" y2="216" />
+          <line x1="96" y1="128" x2="16" y2="128" />
+          <polyline points="48 160 16 128 48 96" />
+          <line x1="160" y1="128" x2="240" y2="128" />
+          <polyline points="208 96 240 128 208 160" />
+        </svg>
+      </div>
+      <div class="label before">Avant</div>
+      <div class="label after">Après</div>
+    </div>
+  </div>
+
+
+  <!-- SLIDER 2 -->
+  <div class="slider-wrapper">
+    <div class="slider-title">Mouna R.</div>
+    <div class="slider-sub">Peau plus lisse et uniforme</div>
+    <div class="container">
+      <div class="image-container">
+        <img class="slider-image image-after" src="https://www.danishskincare.com/cdn/shop/files/recANLCB3WxgPSyCT-thumbnail-after.jpg" alt="Après" />
+        <img class="slider-image image-before" src="https://www.danishskincare.com/cdn/shop/files/recANLCB3WxgPSyCT-thumbnail-before.jpg" alt="Avant" />
+      </div>
+      <input type="range" min="0" max="100" value="50" class="slider" />
+      <div class="slider-line"></div>
+      <div class="slider-button">
+        <!-- même icône SVG -->
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 256 256">
+          <line x1="128" y1="40" x2="128" y2="216" />
+          <line x1="96" y1="128" x2="16" y2="128" />
+          <polyline points="48 160 16 128 48 96" />
+          <line x1="160" y1="128" x2="240" y2="128" />
+          <polyline points="208 96 240 128 208 160" />
+        </svg>
+      </div>
+      <div class="label before">Avant</div>
+      <div class="label after">Après</div>
+    </div>
+  </div>
+
+
+  <!-- SLIDER 3 -->
+  <div class="slider-wrapper">
+    <div class="slider-title">Mouna R.</div>
+    <div class="slider-sub">Peau plus lisse et uniforme</div>
+    <div class="container">
+      <div class="image-container">
+        <img class="slider-image image-after" src="https://www.danishskincare.com/cdn/shop/files/recANLCB3WxgPSyCT-thumbnail-after.jpg" alt="Après" />
+        <img class="slider-image image-before" src="https://www.danishskincare.com/cdn/shop/files/recANLCB3WxgPSyCT-thumbnail-before.jpg" alt="Avant" />
+      </div>
+      <input type="range" min="0" max="100" value="50" class="slider" />
+      <div class="slider-line"></div>
+      <div class="slider-button">
+        <!-- même icône SVG -->
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 256 256">
+          <line x1="128" y1="40" x2="128" y2="216" />
+          <line x1="96" y1="128" x2="16" y2="128" />
+          <polyline points="48 160 16 128 48 96" />
+          <line x1="160" y1="128" x2="240" y2="128" />
+          <polyline points="208 96 240 128 208 160" />
+        </svg>
+      </div>
+      <div class="label before">Avant</div>
+      <div class="label after">Après</div>
+    </div>
+  </div>
+
+  <!-- SLIDER 4 -->
+  <div class="slider-wrapper">
+    <div class="slider-title">Mouna R.</div>
+    <div class="slider-sub">Peau plus lisse et uniforme</div>
+    <div class="container">
+      <div class="image-container">
+        <img class="slider-image image-after" src="https://www.danishskincare.com/cdn/shop/files/recANLCB3WxgPSyCT-thumbnail-after.jpg" alt="Après" />
+        <img class="slider-image image-before" src="https://www.danishskincare.com/cdn/shop/files/recANLCB3WxgPSyCT-thumbnail-before.jpg" alt="Avant" />
+      </div>
+      <input type="range" min="0" max="100" value="50" class="slider" />
+      <div class="slider-line"></div>
+      <div class="slider-button">
+        <!-- même icône SVG -->
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 256 256">
+          <line x1="128" y1="40" x2="128" y2="216" />
+          <line x1="96" y1="128" x2="16" y2="128" />
+          <polyline points="48 160 16 128 48 96" />
+          <line x1="160" y1="128" x2="240" y2="128" />
+          <polyline points="208 96 240 128 208 160" />
+        </svg>
+      </div>
+      <div class="label before">Avant</div>
+      <div class="label after">Après</div>
+    </div>
+  </div>
+
+  <!-- SLIDER 5 -->
+  <div class="slider-wrapper">
+    <div class="slider-title">Mouna R.</div>
+    <div class="slider-sub">Peau plus lisse et uniforme</div>
+    <div class="container">
+      <div class="image-container">
+        <img class="slider-image image-after" src="https://www.danishskincare.com/cdn/shop/files/recANLCB3WxgPSyCT-thumbnail-after.jpg" alt="Après" />
+        <img class="slider-image image-before" src="https://www.danishskincare.com/cdn/shop/files/recANLCB3WxgPSyCT-thumbnail-before.jpg" alt="Avant" />
+      </div>
+      <input type="range" min="0" max="100" value="50" class="slider" />
+      <div class="slider-line"></div>
+      <div class="slider-button">
+        <!-- même icône SVG -->
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 256 256">
+          <line x1="128" y1="40" x2="128" y2="216" />
+          <line x1="96" y1="128" x2="16" y2="128" />
+          <polyline points="48 160 16 128 48 96" />
+          <line x1="160" y1="128" x2="240" y2="128" />
+          <polyline points="208 96 240 128 208 160" />
+        </svg>
+      </div>
+      <div class="label before">Avant</div>
+      <div class="label after">Après</div>
+    </div>
+  </div>
+  
+  <!-- SLIDER 6 -->
+  <div class="slider-wrapper">
+    <div class="slider-title">Mouna R.</div>
+    <div class="slider-sub">Peau plus lisse et uniforme</div>
+    <div class="container">
+      <div class="image-container">
+        <img class="slider-image image-after" src="https://www.danishskincare.com/cdn/shop/files/recANLCB3WxgPSyCT-thumbnail-after.jpg" alt="Après" />
+        <img class="slider-image image-before" src="https://www.danishskincare.com/cdn/shop/files/recANLCB3WxgPSyCT-thumbnail-before.jpg" alt="Avant" />
+      </div>
+      <input type="range" min="0" max="100" value="50" class="slider" />
+      <div class="slider-line"></div>
+      <div class="slider-button">
+        <!-- même icône SVG -->
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 256 256">
+          <line x1="128" y1="40" x2="128" y2="216" />
+          <line x1="96" y1="128" x2="16" y2="128" />
+          <polyline points="48 160 16 128 48 96" />
+          <line x1="160" y1="128" x2="240" y2="128" />
+          <polyline points="208 96 240 128 208 160" />
+        </svg>
+      </div>
+      <div class="label before">Avant</div>
+      <div class="label after">Après</div>
+    </div>
+  </div>
+
+
+</div>
+
+<script>
+  const sliders = document.querySelectorAll('.slider');
+  sliders.forEach(slider => {
+    const container = slider.closest('.container');
+    const before = container.querySelector('.image-before');
+    const line = container.querySelector('.slider-line');
+    const btn = container.querySelector('.slider-button');
+
+    function update(val) {
+      before.style.clipPath = `inset(0 ${100 - val}% 0 0)`;
+      line.style.left = val + '%';
+      btn.style.left = val + '%';
+    }
+
+    slider.addEventListener('input', (e) => update(e.target.value));
+    update(slider.value);
+  });
+</script>
+
+</body>
+</html>
