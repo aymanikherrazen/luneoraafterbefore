@@ -458,18 +458,18 @@
         <div class="resultats-grid">
             <div class="resultat-card" tabindex="0">
                 <div class="comparison-container">
-                    <a href="/pages/transformations-authentiques" class="image-container">
+                    <div class="image-container">
                         <div class="image-placeholder">
                             <img src="https://i.postimg.cc/YSQJtczx/rec3-AW9uu5-Qj8-SB9p-before.webp" alt="Avant traitement anti-acné" loading="lazy">
                         </div>
                         <div class="image-label avant-label">Avant</div>
-                    </a>
-                    <a href="/pages/transformations-authentiques" class="image-container">
+                    </div>
+                    <div class="image-container">
                         <div class="image-placeholder">
                             <img src="https://i.postimg.cc/pLwwNVzT/rec3-AW9uu5-Qj8-SB9p-after.jpg" alt="Après traitement anti-acné" loading="lazy">
                         </div>
                         <div class="image-label apres-label">Après</div>
-                    </a>
+                    </div>
                 </div>
                 <div class="resultat-info">
                     <h3 class="resultat-title">Traitement Anti-Acné</h3>
@@ -493,7 +493,7 @@
         </div>
 
         <div class="cta-container">
-            <a href="/pages/transformations-authentiques" class="cta-button">
+            <a href="https://luneoracosmiteques.com/pages/transformations-authentiques" class="cta-button" target="_self">
                 Voir les résultats
                 <i class="fas fa-arrow-right"></i>
             </a>
@@ -562,20 +562,13 @@
         // Handle CTA button clicks
         ctaButton.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
-            if (href.startsWith('/')) {
-                // Let the browser handle the navigation naturally
+            if (href.startsWith('/') || href.startsWith('http')) {
+                // Navigation will happen in the same tab due to target="_self"
                 console.log('Navigation vers:', href);
             }
         });
 
-        // Handle image link clicks
-        imageLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                const href = this.getAttribute('href');
-                console.log('Image clicked - Navigation vers:', href);
-                // Add loading animation or other effects here if needed
-            });
-        });
+        // Images are now non-clickable, only for display
 
         // Add keyboard navigation support
         cards.forEach((card, index) => {
